@@ -1,0 +1,51 @@
+# Dependencias
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+build/
+dist/
+
+# Producción
+.env
+.env.local
+.env.production
+.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Uploads locales
+public/uploads/
+
+# Carpetas de imágenes locales (no subir al repo)
+image/
+image_Productos/
+
+# Backups y archivos temporales
+backup_pre_tenant.sql
+*.sql
+
+# Temporales de Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
