@@ -278,3 +278,20 @@ Cuando se implemente:
 - Pre-carga de datos desde "Mi Cuenta" al Checkout funcionando.
 - Respaldos .bak eliminados.
 - PENDIENTE: Prueba de pago real (MercadoPago) para validar Webhook (Stock y Correo).
+
+## MANUAL DE CLONACION (Para nuevos clientes)
+1. Copiar carpeta del proyecto master (8Doce) a la nueva carpeta del cliente.
+2. Borrar .git, 
+ode_modules y .next.
+3. Cambiar el nombre en package.json.
+4. Crear base de datos en Neon y copiar la URL (sin -pooler).
+5. Crear App en UploadThing (SDK v7+) y copiar el token.
+6. Crear el archivo .env con las nuevas credenciales y un nuevo NEXTAUTH_SECRET.
+7. Ejecutar 
+px prisma db push para crear las tablas.
+8. Modificar prisma/seed.js (URL de BD, email del admin y nombre de la tienda).
+9. Ejecutar 
+ode prisma/seed.js para llenar comunas, categorias, paginas y admin.
+10. Subir a GitHub y crear proyecto en Vercel con las variables de entorno.
+11. Cambiar logos en public/ y ajustar textos base en pp/.
+12. Verificar que NEXTAUTH_URL y APP_URL en Vercel apunten al dominio real del cliente.
