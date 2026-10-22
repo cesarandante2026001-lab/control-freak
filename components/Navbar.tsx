@@ -36,15 +36,15 @@ export function Navbar({
         {bannerTexto}
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 py-3 flex items-center gap-4">
+      <div className="max-w-[1400px] mx-auto px-4 py-4 flex items-center gap-4">
         <Link href="/" className="flex-shrink-0">
           <Image
             src="/logo-horizontal.png"
             alt="Control-Freak"
-            width={200}
-            height={60}
+            width={400}
+            height={120}
             priority
-            className="h-10 w-auto object-contain"
+            className="h-14 w-auto object-contain"
           />
         </Link>
 
