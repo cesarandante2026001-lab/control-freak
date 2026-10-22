@@ -122,7 +122,7 @@ export async function POST(req: Request) {
         },
         external_reference: order.id,
         notification_url: `${appUrl}/api/webhooks/mercadopago`,
-        statement_descriptor: "CONTROL-FREAK",
+        statement_descriptor: "8DOCE",
       },
     })
 

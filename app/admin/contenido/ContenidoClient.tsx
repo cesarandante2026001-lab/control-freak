@@ -95,7 +95,7 @@ export default function ContenidoClient({
                 label="Nombre de la tienda"
                 valor={config.storeName ?? ""}
                 onChange={(v) => setC("storeName", v)}
-                placeholder="control-freak"
+                placeholder="8doce"
               />
               <Campo
                 label="Año de fundación"
@@ -125,7 +125,7 @@ export default function ContenidoClient({
                 label="Email de contacto"
                 valor={config.email ?? ""}
                 onChange={(v) => setC("email", v)}
-                placeholder="info.control-freak@gmail.com"
+                placeholder="info.8doce@gmail.com"
               />
               <Campo
                 label="Teléfono"

@@ -48,7 +48,7 @@ export default function RegisterPage() {
             Crear cuenta
           </h1>
           <p className="text-sm text-gray-500">
-            Únete a control-freak
+            Únete a 8doce
           </p>
         </div>
 
