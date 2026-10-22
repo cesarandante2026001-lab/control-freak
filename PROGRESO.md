@@ -295,3 +295,30 @@ ode prisma/seed.js para llenar comunas, categorias, paginas y admin.
 10. Subir a GitHub y crear proyecto en Vercel con las variables de entorno.
 11. Cambiar logos en public/ y ajustar textos base en pp/.
 12. Verificar que NEXTAUTH_URL y APP_URL en Vercel apunten al dominio real del cliente.
+
+## REGISTRO DE ERRORES Y SOLUCIONES (Clonacion Control-Freak)
+Fecha: 22-Oct-2026
+
+### Error 1: Error 500 en Vercel ("This page couldn't load")
+- **Causa:** La base de datos nueva de Neon estaba vacia. Vercel intentaba leer la tabla 'Category' y 'SiteConfig' durante el build y fallaba.
+- **Solucion:** Ejecutar 'npx prisma db push' para crear las tablas y agregar 'export const dynamic = "force-dynamic"' en los layouts para evitar que Next.js intente pre-renderizar la base de datos durante el build.
+
+### Error 2: Fallo de autenticacion de Prisma (P1000 / Authentication failed)
+- **Causa:** Prisma 7 requiere obligatoriamente el adaptador '@prisma/adapter-pg'. Ademas, la URL con '-pooler' de Neon da problemas en scripts locales.
+- **Solucion:** Usar 'PrismaPg' en los scripts y usar la URL directa (sin '-pooler').
+
+### Error 3: Error de sintaxis en package.json
+- **Causa:** Un script de PowerShell uso '-replace' y rompio el formato JSON al intentar agregar el comando 'seed'.
+- **Solucion:** Usar Node.js para leer el JSON ('JSON.parse'), agregar la propiedad y volver a guardarlo ('JSON.stringify').
+
+### Error 4: Redireccion a web externa (controlfreek.com) al desloguearse
+- **Causa:** Las variables 'NEXTAUTH_URL' y 'APP_URL' en Vercel apuntaban a 'control-freak.vercel.app' (dominio ocupado por una empresa gringa). El proyecto real estaba en 'control-freak-beta.vercel.app'.
+- **Solucion:** Cambiar las variables de entorno en Vercel al dominio '-beta' y hacer Redeploy sin cache.
+
+### Error 5: Login fallido (Email o contraseña incorrectos)
+- **Causa:** El archivo 'seed.js' creaba el admin con 'admin@8doce.cl', pero no se habia ejecutado en la base de datos de Control-Freak. Ademas, el correo debia ser propio del cliente.
+- **Solucion:** Modificar el 'seed.js' con el nuevo correo ('admin@control-freak.cl') y ejecutarlo apuntando a la URL de Neon de Control-Freak.
+
+### Error 6: Logo pequeno y deformado en el Navbar
+- **Causa:** El componente '<Image>' de Next.js tenia dimensiones fijas (140x40 px) que no coincidian con la proporcion del logo nuevo.
+- **Solucion:** Cambiar en 'Navbar.tsx' el tamano a 'h-14' (56px) y usar 'object-contain' para mantener la proporcion.
