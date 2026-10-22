@@ -40,7 +40,7 @@ export function Navbar({
         <Link href="/" className="flex-shrink-0">
           <Image
             src="/logo-horizontal.png"
-            alt="8doce"
+            alt="control-freak"
             width={140}
             height={40}
             priority
