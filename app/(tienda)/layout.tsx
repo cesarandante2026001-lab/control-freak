@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { Providers } from "@/app/providers"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
